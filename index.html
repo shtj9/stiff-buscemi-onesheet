@@ -101,7 +101,7 @@
             text-align: left;
         }
         .logo-img {
-            max-width: 350px;
+            max-width: 100%;
             height: auto;
             display: block;
             margin: 0 auto 30px;
@@ -109,14 +109,15 @@
         }
         .band-image {
             width: 100%;
-            height: 450px;
+            height: auto; /* Promenjeno sa fiksne visine na automatsku */
+            max-height: 450px; /* Opciono: Postavite maksimalnu visinu za veće ekrane ako želite da ograničite sliku */
             object-fit: cover;
             border-radius: 6px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5), 0 0 0 5px var(--color-border-primary); /* Image border is dark */
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5), 0 0 0 5px var(--color-border-primary);
             filter: none;
-            border: 2px solid var(--color-border-secondary); /* Image inner border is light */
-        }
+            border: 2px solid var(--color-border-secondary);
+            }
         p {
             font-size: 1.1rem;
             color: var(--color-text-light); /* Body text is light */
@@ -146,9 +147,9 @@
             text-transform: uppercase;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             font-family: var(--font-body); /* Ensure consistent font */
-            white-space: nowrap; /* Prevent text wrapping within button */
+            /* white-space: nowrap; */ /* OBRISANA OVA LINIJA */
         }
-        .download-button:hover {
+       .download-button:hover {
             background-color: var(--color-border-primary); /* Button turns red on hover */
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
@@ -172,6 +173,9 @@
             padding: 5px;
             background-color: var(--color-text-light); /* Light background for QR readability */
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            /* DODATO ZA RESPONSIVNOST QR KODOVA */
+            max-width: 100%;
+            height: auto;
         }
         .qr-code-item p {
             margin-top: 10px;
@@ -195,12 +199,44 @@
             letter-spacing: 1.5px;
             border: 2px solid var(--color-button-text); /* Button border is light */
             text-transform: uppercase;
+            /* white-space: nowrap; */ /* OBRISANA OVA LINIJA AKO JE POSTOJALA */
         }
         .pdf-download-btn:hover {
             background-color: var(--color-border-primary); /* Button turns red on hover */
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
         }
+
+        @media (max-width: 450px) {
+            .one-sheet-container {
+                padding: 5px; /* Još više smanjen padding za najmanje ekrane */
+            }
+            body {
+                padding: 2.5px; /* Nema daljeg smanjenja, ili smanjite ako je neophodno */
+            }
+            h1 {
+                font-size: 1.5rem; /* Još manje za najmanje ekrane */
+                letter-spacing: 1px;
+            }
+            h2 {
+                font-size: 1rem; /* Još manje za najmanje ekrane */
+            }
+            .download-button,
+            .pdf-download-btn {
+                font-size: 0.6rem; /* Minimalni font za dugmiće */
+                padding: 4px 8px; /* Minimalni padding dugmića */
+            }
+            .pdf-download-btn {
+                margin-bottom: 10%;
+            }
+                    
+            .qr-code-item img {
+                width: 0; /* Još manje za najmanje ekrane */
+                height: 0;
+            }
+            .qr-code-item p {
+                font-size: 0; /* Još manje za QR labele */
+            }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
