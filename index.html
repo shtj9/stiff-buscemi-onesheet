@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stiff Buscemi - One Sheet (Balkan Art Style)</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons (for professional social media links) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlalKxM9S4x6e2+Mh4kP/J6N3/2d2o45s1x5O3k/pD1f1P4m1/6t05B/u6t6z08s2v/O4p2c1n2Z2w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* --- NEW COLOR PALETTE (Swapped Body/Container) --- */
         :root {
@@ -39,7 +41,7 @@
             min-height: 100vh;
             /* Background texture adjusted for new body background color */
             background-image:
-                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJnIj48ZmUgZGlzdGFuY2VEdXJlY3RlZFJlc29sdXRpb24vbmFubyI+PC9mZT48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIjMjMxRjIwIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMjAiIGZpbGw9IiM0NjM5M0UiIGZpbHRlcj0idXJsKCNnKSIvPjwvc3ZnPg=='), /* Subtle noise/grit, adjusted for dark background */
+                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJnIj48ZmUgZGlzdGFhbnNjb250cm9sIi8+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzIzMUYyMCIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjIwIiBmaWxsPSIjNDYzOTNFIiBmaWx0ZXI9InVybCgjZykiLz48L3N2Zz4='), /* Subtle noise/grit, adjusted for dark background */
                 linear-gradient(145deg, var(--color-bg-page) 5%, transparent 30%), /* Uses new page bg color */
                 radial-gradient(at 80% 20%, #E8A88F 5%, transparent 30%), /* A lighter shade of the red for subtle glow (looks good on dark) */
                 linear-gradient(-45deg, var(--color-bg-page) 5%, transparent 30%), /* Uses new page bg color */
@@ -62,6 +64,11 @@
             overflow: hidden;
             border: 3px solid var(--color-border-primary); /* Main container border is dark */
             box-sizing: border-box;
+            /* Background image from the provided design */
+            background-image: url('https://ibb.co/DftFDWtp');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
         }
         .one-sheet-container::before {
             content: '';
@@ -76,6 +83,28 @@
             position: relative;
             z-index: 1;
         }
+        /* Language Switch Button positioned fixed to viewport */
+        .language-switch {
+            position: fixed; /* Changed from absolute to fixed */
+            top: 20px; /* Distance from top of viewport */
+            right: 20px; /* Distance from right of viewport */
+            z-index: 1000; /* Ensure it's on top of everything */
+        }
+        .language-button {
+            background-color: var(--color-button-bg);
+            color: var(--color-button-text);
+            border: 1px solid var(--color-button-text);
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .language-button:hover {
+            background-color: var(--color-button-text);
+            color: var(--color-button-bg);
+        }
+
         h1, h2 {
             font-family: var(--font-display-h1);
             color: var(--color-accent-text); /* Headings are light */
@@ -84,7 +113,7 @@
             margin-bottom: 20px;
         }
         h1 {
-            font-family: var(--font-display-h1);
+            font-family: 'Creepster', cursive; /* Using a spooky/rock font for band name */
             font-size: 4rem;
             letter-spacing: 5px;
             padding-bottom: 15px;
@@ -92,7 +121,7 @@
             text-transform: uppercase;
         }
         h2 {
-            font-family: var(--font-display-h2);
+            font-family: 'Inter', sans-serif; /* Changed to Inter for a normal look */
             font-size: 2.5rem;
             color: var(--color-accent-text); /* H2 also light */
             border-bottom: 2px solid var(--color-border-primary); /* H2 border is dark */
@@ -109,8 +138,8 @@
         }
         .band-image {
             width: 100%;
-            height: auto; /* Promenjeno sa fiksne visine na automatsku */
-            max-height: 450px; /* Opciono: Postavite maksimalnu visinu za veće ekrane ako želite da ograničite sliku */
+            height: auto;
+            max-height: 450px;
             object-fit: cover;
             border-radius: 6px;
             margin-bottom: 30px;
@@ -146,8 +175,7 @@
             border: 2px solid var(--color-button-text);
             text-transform: uppercase;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            font-family: var(--font-body); /* Ensure consistent font */
-            /* white-space: nowrap; */ /* OBRISANA OVA LINIJA */
+            font-family: 'Inter', sans-serif; /* Ensure consistent font */
         }
        .download-button:hover {
             background-color: var(--color-border-primary); /* Button turns red on hover */
@@ -162,7 +190,7 @@
             justify-content: center;
             margin-top: 30px;
             padding-top: 25px;
-            border-top: 1px dashed var(--color-border-secondary); /* QR section border is light */
+            /* REMOVED: border-top: 1px dashed var(--color-border-secondary); */
         }
         .qr-code-item {
             text-align: center;
@@ -172,10 +200,10 @@
             border-radius: 0;
             padding: 5px;
             background-color: var(--color-text-light); /* Light background for QR readability */
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-            /* DODATO ZA RESPONSIVNOST QR KODOVA */
-            max-width: 100%;
-            height: auto;
+            box-shadow: 3px 33px 10px rgba(0, 0, 0, 0.5);
+            max-width: 100px; /* Specific size for QR codes */
+            height: 100px;
+            object-fit: contain;
         }
         .qr-code-item p {
             margin-top: 10px;
@@ -183,6 +211,34 @@
             color: var(--color-accent-text); /* QR labels are light */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
+        /* Social Media Links Styling */
+        .social-links {
+            display: flex;
+            flex-direction: column; /* Stack vertically */
+            gap: 10px; /* Space between links */
+            align-items: flex-start; /* Align text to the left */
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: flex; /* Allow icon and text to be on the same line */
+            align-items: center; /* Vertically align icon and text */
+            font-size: 1.1rem; /* Slightly larger text for clarity */
+            color: var(--color-accent-text); /* Use accent color for text */
+            text-decoration: none; /* No underline by default */
+            transition: color 0.3s ease, transform 0.2s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .social-links a:hover {
+            color: #FFD700; /* Brighter gold on hover */
+            text-decoration: underline; /* Underline on hover */
+            transform: translateX(5px); /* Small slide effect on hover */
+        }
+        .social-links a .icon {
+            margin-right: 10px; /* Space between icon and text */
+            font-size: 1.3em; /* Larger icon size */
+            color: var(--color-border-secondary); /* Icon color */
+        }
+
         .pdf-download-btn { /* Renamed for clarity, it's specific to the PDF */
             display: block;
             width: fit-content;
@@ -199,7 +255,6 @@
             letter-spacing: 1.5px;
             border: 2px solid var(--color-button-text); /* Button border is light */
             text-transform: uppercase;
-            /* white-space: nowrap; */ /* OBRISANA OVA LINIJA AKO JE POSTOJALA */
         }
         .pdf-download-btn:hover {
             background-color: var(--color-border-primary); /* Button turns red on hover */
@@ -207,36 +262,65 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
         }
 
-        @media (max-width: 450px) {
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
             .one-sheet-container {
-                padding: 5px; /* Još više smanjen padding za najmanje ekrane */
-            }
-            body {
-                padding: 2.5px; /* Nema daljeg smanjenja, ili smanjite ako je neophodno */
+                padding: 20px;
             }
             h1 {
-                font-size: 1.5rem; /* Još manje za najmanje ekrane */
-                letter-spacing: 1px;
+                font-size: 3rem;
             }
             h2 {
-                font-size: 1rem; /* Još manje za najmanje ekrane */
+                font-size: 2rem;
             }
-            .download-button,
-            .pdf-download-btn {
-                font-size: 0.6rem; /* Minimalni font za dugmiće */
-                padding: 4px 8px; /* Minimalni padding dugmića */
+            .download-button, .pdf-download-btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
             }
-            .pdf-download-btn {
-                margin-bottom: 10%;
-            }
-                    
             .qr-code-item img {
-                width: 0; /* Još manje za najmanje ekrane */
-                height: 0;
+                width: 80px;
+                height: 80px;
+            }
+            .social-links a {
+                font-size: 1rem;
+            }
+            .social-links a .icon {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .one-sheet-container {
+                padding: 15px;
+                margin: 1rem auto;
+            }
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+            h2 {
+                font-size: 1.8rem;
+                margin-top: 25px;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .download-button, .pdf-download-btn {
+                padding: 10px 15px;
+                font-size: 0.8rem;
+            }
+            .qr-code-item img {
+                width: 70px;
+                height: 70px;
             }
             .qr-code-item p {
-                font-size: 0; /* Još manje za QR labele */
+                font-size: 0.8rem;
             }
+            .language-button {
+                padding: 3px 8px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -244,11 +328,17 @@
 </head>
 <body>
     <div class="one-sheet-container">
-        <div class="content-section text-center">
-            <img src="https://i.imgur.com/Bzbulbr.png" alt="Stiff Buscemi Logo" class="logo-img">
+        <!-- Language Switch Button -->
+        <!-- Moved outside the main container to avoid logo overlap and ensure fixed position relative to viewport -->
+        <div class="language-switch">
+            <button id="lang-switch-btn" class="language-button">EN/SR</button>
         </div>
 
         <div class="content-section text-center">
+            <!-- Band Logo -->
+            <img src="https://i.imgur.com/Bzbulbr.png" alt="Stiff Buscemi Logo" class="logo-img">
+
+            <!-- Main Band Image -->
             <img
                 src="https://i.imgur.com/uYkHd6Y.jpeg"
                 alt="Stiff Buscemi Band Photo"
@@ -256,31 +346,36 @@
             >
             <div class="download-buttons-group">
                 <a
-                    href="https://drive.google.com/file/d/1VuO0x5UuvWP074cGPKM3C7eyMN0Bn_hN/view?usp=sharing"
-                    download="Stiff_Buscemi_Band_Photo.jpg"
+                    href="https://i.imgur.com/Bzbulbr.png"
+                    download="Stiff_Buscemi_Logo.png"
                     class="download-button"
+                    data-i18n-key="downloadLogo"
                 >
-                    Download Band Photo
+                    Download Logo
                 </a>
                 <a
-                    href="https://drive.google.com/file/d/1VX6vK5Xx2J0fSlo3OcIw9fTA5CVv-ZhY/view?usp=sharing"
-                    download="Stiff_Buscemi_Logo_White.png"
+                    href="https://i.imgur.com/uYkHd6Y.jpeg"
+                    download="Stiff_Buscemi_Band_Pictures.jpeg"
                     class="download-button"
+                    data-i18n-key="downloadBandPictures"
                 >
-                    Download White Logo
+                    Download Band Pictures
                 </a>
                 <a
-                    href="https://drive.google.com/file/d/1UO_ge9ac-3PQn95MArFZEiT6QZMtjvvu/view?usp=sharing"
-                    download="Stiff_Buscemi_Logo_Black.png"
+                    href="YOUR_RIDER_PDF_PUBLIC_URL_HERE"
+                    download="Stiff_Buscemi_Rider_Stage_Plot.pdf"
                     class="download-button"
+                    data-i18n-key="riderButton"
                 >
-                    Download Black Logo
+                    Tech Rider & Stage Plot
                 </a>
             </div>
         </div>
+
         <div class="content-section">
-            <h2 class="text-xl font-semibold">BIO</h2>
-            <p class="text-base">
+            <h2 class="text-xl font-semibold" data-i18n-key="bioHeading">BIO</h2>
+            <br>
+            <p class="text-base" data-i18n-key="bioText">
                 Stiff Buscemi is a Serbian instrumental psychedelic rock band from Novi Sad. The band
                 draws inspiration from various types of local peppers, African spices, and Middle Eastern teas.
                 Spontaneously formed in 2018, the band spent the next three years searching for its identity
@@ -292,61 +387,134 @@
         </div>
 
         <div class="content-section">
-            <h2 class="text-xl font-semibold">Album "Jet-Black Highdooks"</h2>
-            <p class="text-base">
+            <h2 class="text-xl font-semibold" data-i18n-key="albumHeading">Album "Jet-Black Highdooks"</h2>
+            <br>
+            <p class="text-base" data-i18n-key="albumText">
                 Jet-Black Highdooks is the debut album by Stiff Buscemi that blends psychedelic rock with instrumental layers inspired by Balkan music, the Middle East, and North Africa. The album offers a rich sonic experience, highlighted by wah guitars that create an and atmospheric and hypnotic dynamic. The rhythms are intricate, and the sound shifts from energetic, unpredictable moments to introspective passages. Jet-Black Highdooks delivers a unique sonic experience that explores the boundaries between tradition and modernity through a mix of exotic tones and psychedelic effects.
             </p>
         </div>
 
         <div class="content-section">
-            <h2 class="text-xl font-semibold">Where Can You Listen To Us</h2>
-            <div class="listen-links text-lg mt-3">
-                <p>SPOTIFY: <a href="https://open.spotify.com/artist/1mCxqYWkmmLWjwipvvCHpB" target="_blank" rel="noopener noreferrer">spotify.com/StiffBuscemi</a></p>
-                <p>YOUTUBE: <a href="https://youtube.com/playlist?list=OLAK5uy_kYgUEBJgEdHwktkUS9BOuILL0yxSFMnIQ&feature=shared" target="_blank" rel="noopener noreferrer">youtube.com/StiffBuscemi</a></p>
-            </div>
+            <h2 class="text-xl font-semibold" data-i18n-key="listenHeading">Where Can You Listen To Us</h2>
             <div class="qr-code-section">
                 <div class="qr-code-item">
                     <div id="spotify-qr"></div>
-                    <p>Spotify</p>
+                    <p data-i18n-key="spotifyLabel">Spotify</p>
                 </div>
                 <div class="qr-code-item">
                     <div id="youtube-qr"></div>
-                    <p>YouTube</p>
+                    <p data-i18n-key="youtubeLabel">YouTube</p>
                 </div>
+            </div>
+            <!-- Links moved below QR codes as requested -->
+            <div class="download-buttons-group mt-6"> <!-- Adjusted margin-top for spacing -->
+                <a href="https://open.spotify.com/artist/1mCxqYWkmmLWjwipvvCHpB" target="_blank" class="download-button" data-i18n-key="listenOnSpotify">
+                    Listen on Spotify
+                </a>
+                <a href="https://youtube.com/playlist?list=OLAK5uy_kYgUEBJgEdHwktkUS9BOuILL0yxSFMnIQ&feature=shared" target="_blank" class="download-button" data-i18n-key="listenOnYoutube">
+                    Listen on YouTube
+                </a>
             </div>
         </div>
 
         <div class="content-section">
-            <h2 class="text-xl font-semibold">Contacts & Socials</h2>
-            <div class="social-links text-lg mt-3">
-                <p><a href="https://www.instagram.com/stiffbuscemi/" target="_blank" rel="noopener noreferrer">Instagram: @stiffbuscemi</a></p>
-                <p><a href="https://www.facebook.com/iwasfrozenstiff" target="_blank" rel="noopener noreferrer">Facebook: /iwasfrozenstiff</a></p>
-                <p><a href="https://stiffbuscemi.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp: stiffbuscemi.bandcamp.com</a></p>
-                <p><a href="https://www.youtube.com/@stiffbuscemi" target="_blank" rel="noopener noreferrer">YouTube: youtube.com/StiffBuscemiOfficial</a></p>
+            <h2 class="text-xl font-semibold" data-i18n-key="contactsHeading">Contacts & Socials</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/stiffbuscemi/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram icon"></i> Instagram
+                </a>
+                <a href="https://www.facebook.com/iwasfrozenstiff" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f icon"></i> Facebook
+                </a>
+                <a href="https://stiffbuscemi.bandcamp.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-bandcamp icon"></i> Bandcamp
+                </a>
+                <a href="https://www.youtube.com/@stiffbuscemi" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube icon"></i> YouTube
+                </a>
             </div>
         </div>
 
-        <div class="content-section text-center">
-            <a href="https://drive.google.com/file/d/1X-bqE72PComEsENO6BjJ5vaQYry65ek8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-download-btn">
-                Tech Rider & Stage Plot
-            </a>
-        
-        </div>
+        <!-- The Rider button is now located within the download-buttons-group -->
     </div>
 
     <script>
-        // Function to generate QR code using goqr.me API
-        function generateQRCode(text, elementId) {
-            const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(text)}`;
-            const img = document.createElement('img');
-            img.src = qrCodeUrl;
-            img.alt = `QR Code for ${text}`;
-            document.getElementById(elementId).appendChild(img);
+        // Translations object
+        const translations = {
+            en: {
+                bandName: "STIFF BUSCEMI", // Though this is currently a static H1
+                downloadLogo: "Download Logo",
+                downloadBandPictures: "Download Band Pictures", // NEW: For the new button
+                bioHeading: "BIO",
+                bioText: "Stiff Buscemi is a Serbian instrumental psychedelic rock band from Novi Sad. The band draws inspiration from various types of local peppers, African spices, and Middle Eastern teas. Spontaneously formed in 2018, the band spent the next three years searching for its identity and musical expression through jam sessions, collaborations with other artists, and experimentation with sound and style. In 2022, the band began working on its first official album, “Jet-Black Highdooks”, which will define its sound and style. In 2025, the album saw the light of day in collaboration with the record label Inverted Spectrum Records.",
+                albumHeading: "Album \"Jet-Black Highdooks\"",
+                albumText: "Jet-Black Highdooks is the debut album by Stiff Buscemi that blends psychedelic rock with instrumental layers inspired by Balkan music, the Middle East, and North Africa. The album offers a rich sonic experience, highlighted by wah guitars that create an and atmospheric and hypnotic dynamic. The rhythms are intricate, and the sound shifts from energetic, unpredictable moments to introspective passages. Jet-Black Highdooks delivers a unique sonic experience that explores the boundaries between tradition and modernity through a mix of exotic tones and psychedelic effects.",
+                listenHeading: "Where Can You Listen To Us",
+                spotifyLabel: "Spotify",
+                youtubeLabel: "YouTube",
+                listenOnSpotify: "Listen on Spotify",
+                listenOnYoutube: "Listen on YouTube",
+                contactsHeading: "Contacts & Socials",
+                riderButton: "Tech Rider & Stage Plot"
+            },
+            sr: {
+                bandName: "STIFF BUSCEMI", // Static H1
+                downloadLogo: "Preuzmi logo",
+                downloadBandPictures: "Preuzmi fotografije benda", // NEW: For the new button
+                bioHeading: "BIO",
+                bioText: "Stiff Buscemi je instrumentalni psychedelic rock bend iz Novog Sada, koji crpi inspiraciju iz različitih vrsta domaće paprike, bliskoistočnih čajeva i afričkih začina. Bend je spontano formiran 2018. godine, a tokom naredne tri godine sarađuju sa drugim umetnicima i eksperimentišu sa zvukom i stilom u potrazi za jedinstvenim muzičkim izrazom. 2022. godine započinju rad na svom prvom albumu,”Jet-black Highdooks”;, koji će oblikovati njihov muzički pravac. 2025. album je ugledao svetlost dana u saradnji sa izdavačkom kućom Inverted Spectrum Records.",
+                albumHeading: "Album \"Jet-Black Highdooks\"",
+                albumText: "Jet-Black Highdooks je debitantski album Stiff Buscemija koji kombinuje psihodelični rok sa instrumentalnim slojevima inspirisanim balkanskom muzikom, Bliskim istokom i Severnom Afrikom. Album pruža bogato zvučno iskustvo, naglašeno wah gitarama koje stvaraju atmosferičnu i hipnotičku dinamiku. Ritmovi su složeni, a zvuk prelazi iz energičnih, nepredvidivih trenutaka u introspektivne pasaže. Jet-Black Highdooks donosi jedinstveno zvučno iskustvo koje istražuje granice između tradicije i savremenosti kroz mešavinu egzotičnih tonova i psihodeličnih efekata.",
+                listenHeading: "Gde nas možete slušati",
+                spotifyLabel: "Spotify",
+                youtubeLabel: "YouTube",
+                listenOnSpotify: "Slušaj na Spotify-u",
+                listenOnYoutube: "Slušaj na YouTube-u",
+                contactsHeading: "Kontakti i društvene mreže",
+                riderButton: "Rajder Lista"
+            }
+        };
+
+        // Function to set the language
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n-key]').forEach(element => {
+                const key = element.getAttribute('data-i18n-key');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            // Update the button text itself
+            const langSwitchBtn = document.getElementById('lang-switch-btn');
+            langSwitchBtn.textContent = lang === 'en' ? 'SR' : 'EN';
+            localStorage.setItem('oneSheetLang', lang); // Save preference
         }
 
-        // Generate QR codes for listening links
+        // Initialize language on load
         document.addEventListener('DOMContentLoaded', () => {
-            // !!! IMPORTANT: Replace these with your actual Spotify and YouTube links !!!
+            const savedLang = localStorage.getItem('oneSheetLang') || 'en'; // Default to English
+            setLanguage(savedLang);
+
+            // Toggle language on button click
+            const langSwitchBtn = document.getElementById('lang-switch-btn');
+            if (langSwitchBtn) {
+                langSwitchBtn.addEventListener('click', () => {
+                    const currentLang = localStorage.getItem('oneSheetLang') || 'en';
+                    const newLang = currentLang === 'en' ? 'sr' : 'en';
+                    setLanguage(newLang);
+                });
+            }
+
+            // Generate QR code using goqr.me API
+            function generateQRCode(text, elementId) {
+                const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(text)}`;
+                const img = document.createElement('img');
+                img.src = qrCodeUrl;
+                img.alt = `QR Code for ${text}`;
+                document.getElementById(elementId).innerHTML = ''; // Clear previous QR if any
+                document.getElementById(elementId).appendChild(img);
+            }
+
+            // Generate QR codes for listening links
             generateQRCode('https://open.spotify.com/artist/1mCxqYWkmmLWjwipvvCHpB', 'spotify-qr'); // Replace with your actual Spotify URL
             generateQRCode('https://youtube.com/playlist?list=OLAK5uy_kYgUEBJgEdHwktkUS9BOuILL0yxSFMnIQ&feature=shared', 'youtube-qr'); // Replace with your actual YouTube music URL
         });
